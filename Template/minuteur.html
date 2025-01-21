@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <font color="#7AD7F0">
+        <head>
+            <meta charset="UTF-8" />
+            <title>Minuteur</title>
+            <h1 align="center"><strong>Bienvenue à la page du minuteur</strong></h1>
+            <link rel="stylesheet" href="Projet.css">
+            <style>
+                body  {
+                background-image: url("paper.gif");
+                background-color: #949494;
+                }
+                
+            </style>            
+        </head>
+    </font>
+        <body>
+            <div id="form1" style="display: block;">
+                <form>  
+                    <p>Pour lancer le minuteur, entrez le nombre de minute 
+                            que vous voulez et cliquez sur le bouton lancer:
+                        <label for="minute"></label>
+                        <input type="text" id="minute" name="minute" placeholder="Minute"> 
+                        <button type="button" onclick="settimer()">Lancer</button>
+                    </p>
+                </form>
+            </div>
+
+            <div id="mnutor" style="display: none;">
+                <h2 align="center"> <div id="timer"></div></h2>
+                <button align="center" type="button" onclick="settimer2()">Revenir</button>
+            </div>
+            
+            <div id="Minute" style="display: block";>
+            <form action="minuteurredirect.html" method="post">  
+                <p>Pour lancer le minuteur sur l'écran LCD, veuillez entrer le minute et appuyez sur lancer:
+                <label for="minute"></label>
+                <br><input type="text" id="Minute" name="Minute" placeholder="Minute"> 
+                <button type="submit">Lancer</button></p>
+            </div>
+
+        </body>
+        <script>
+            function settimer()
+                {
+                    var m = document.getElementById("minute").value;
+                    document.getElementById("form1").style.display = "none";
+                    document.getElementById("mnutor").style.display = "block";
+                    document.getElementById("Minute").style.display = "none";
+                    let temps = m * 60
+                    const timerElement = document.getElementById("timer")
+
+                    setInterval(() => {
+                    let minutes = parseInt(temps / 60, 10)
+                    let secondes = parseInt(temps % 60, 10)
+                    minutes = minutes < 10 ? "0" + minutes : minutes
+                    secondes = secondes < 10 ? "0" + secondes : secondes
+
+                    timerElement.innerText = `${minutes}:${secondes}`
+                    temps = temps <= 0 ? 0 : temps - 1
+                    }, 1000)
+                    //var number=document.getElementById("number").value;
+                }
+
+                function settimer2()
+                {
+                    document.getElementById("form1").style.display = "block";
+                    document.getElementById("mnutor").style.display = "none";
+                    document.getElementById("Minute").style.display = "block";
+                }
+
+        </script>
+</html>
+
+

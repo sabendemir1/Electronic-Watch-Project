@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Alarme</title>
+    <font color="#7AD7F0">
+    <h1 align="center"><strong>Montre Connectée</strong></h1>
+    </font>
+    <style>
+      body  {
+      background-image: url("paper.gif");
+      background-color: #949494;
+      }
+      </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <h3>Temps actuel</h3>
+      <div id="current-time"></div>
+      <div class="create-alarm">
+        <div>Mettre en place un alarme</div>
+        <div class="form-actions">
+          <form>
+            <div class="alarm-inputs">
+              <input
+                type="number"
+                name="hour"
+                placeholder="Heures"
+                min="0"
+                max="12"
+                required
+              />
+              <input
+                type="number"
+                name="min"
+                min="0"
+                max="60"
+                placeholder="Minutes"
+                required
+              />
+              <input
+                type="number"
+                name="sec"
+                min="0"
+                max="60"
+                placeholder="Secondes"
+                required
+              />
+              <select name="zone" required>
+                <option value="" selected disabled>Zone</option>
+                <option value="AM">AM</option>
+                <option value="PM">PM</option>
+              </select>
+            </div>
+            <button>Lancer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div id="active-alarm">
+      <div id="alarm-text"></div>
+      <button id="clear-alarm">Effacer l'alarme</button>
+    </div>
+    <div>
+        Pour faire fonctionner l'alarme sur l'écran LCD, suivez ce lien: <a href="alarme2.html">Ecran LCD</a>
+    </div>
+    <audio id="alarm-audio"></audio>
+    <script src="Alarme.js"></script>
+  </body>
+</html>
